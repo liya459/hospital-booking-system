@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+Booking
+{% endblock %}
+
+{% block content %}
+<div style="background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=1500&q=80') no-repeat center center/cover; min-height: 85vh; display: flex; align-items: center; padding: 40px 0; margin-top: -24px;">
+    
+    <div class="container">
+        <div class="row justify-content-center align-items-center">
+            
+            <div class="col-lg-5 text-white mb-5 mb-lg-0 text-center text-lg-start d-none d-lg-block">
+                <h1 class="display-4 fw-bold mb-3 text-warning">Book Your <br>Appointment</h1>
+                <p class="lead text-light fs-5 mb-4">Your health is in safe hands. Please fill out the form on the right side to secure your consultation with our expert medical team.</p>
+                
+                <div class="d-flex align-items-center mb-3">
+                    <span class="bg-warning text-dark rounded-circle px-3 py-2 fw-bold me-3">1</span>
+                    <p class="mb-0 fs-6">Select Department & Doctor</p>
+                </div>
+                <div class="d-flex align-items-center mb-3">
+                    <span class="bg-warning text-dark rounded-circle px-3 py-2 fw-bold me-3">2</span>
+                    <p class="mb-0 fs-6">Choose Your Convenient Date</p>
+                </div>
+                <div class="d-flex align-items-center">
+                    <span class="bg-warning text-dark rounded-circle px-3 py-2 fw-bold me-3">3</span>
+                    <p class="mb-0 fs-6">Get Instant Confirmation</p>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-10 w-sm-100">
+                <div class="card border-0 shadow-lg p-4 rounded-4" style="background: rgba(255, 255, 255, 0.95) !important;">
+                    <div class="card-body">
+                        <h2 class="card-title text-center text-primary fw-bold mb-2">Make an Appointment</h2>
+                        <p class="text-center text-muted mb-4">Please fill out the form below</p>
+                        <hr>
+                        
+                        <form action="" method="post" class="text-start"> 
+                            {% csrf_token %} 
+                            
+                            {{ form|crispy }}
+                            
+                            <div class="d-grid mt-4">
+                                <button type="submit" class="btn btn-primary btn-lg fw-bold shadow-sm py-2">
+                                    Submit Appointment
+                                </button>
+                            </div>
+                        </form>
+                        
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}

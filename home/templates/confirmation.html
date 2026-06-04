@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Booking Confirmation
+{% endblock %}
+
+{% block content %}
+<div class="container my-5 text-center">
+    <h1 class="mb-4">Booking Confirmation</h1>
+    
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            
+            <div class="bg-warning text-dark p-4 rounded-3 mb-4 shadow-sm">
+                <span class="d-block text-uppercase small fw-bold tracking-wider text-muted">Your Token Number</span>
+                <h1 class="display-3 fw-bold m-0">#{{ appointment.id }}</h1>
+            </div>
+
+            <div class="card text-start border shadow-sm mb-4">
+                <div class="card-body">
+                    <h5 class="card-title text-primary border-bottom pb-2 mb-3">Appointment Details</h5>
+                    <p class="card-text mb-2"><strong>Patient Name:</strong> {{ appointment.p_name }}</p>
+                    <p class="card-text mb-2"><strong>Doctor:</strong> Dr. {{ appointment.doc_name.doc_name }}</p>
+                    <p class="card-text mb-2"><strong>Specialization:</strong> {{ appointment.doc_name.doc_spec }}</p>
+                    <p class="card-text mb-2"><strong>Department:</strong> {{ appointment.doc_name.dep_name.dep_name }}</p>
+                    <p class="card-text mb-0"><strong>Appointment Date:</strong> {{ appointment.booking_date }}</p>
+                </div>
+            </div>
+
+            <div class="alert alert-info py-3 shadow-sm text-start" role="alert">
+                <i class="fas fa-info-circle me-2"></i> We have received your appointment request. Our representative will call you shortly!
+            </div>
+
+            <div class="mt-4">
+                <a href="{% url 'home' %}" class="btn btn-primary px-4 shadow-sm">Back to Home</a>
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}

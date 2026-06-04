@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %}
+OUR Doctors
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Our Doctors</h1>
+    <hr>
+
+    <div class="row">
+        {% for d in doctors %}
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 shadow-sm text-center p-3">
+                
+                {% if d.doc_image %}
+                    <img src="{{ d.doc_image.url }}" alt="{{ d.doc_name }}" class="card-img-top mx-auto" style="width: 200px; height: 200px; object-fit: cover; border-radius: 50%;">
+                {% else %}
+                    <div class="bg-secondary text-white d-flex align-items-center justify-content-center mx-auto" style="width: 200px; height: 200px; border-radius: 50%;">
+                        No Photo
+                    </div>
+                {% endif %}
+
+                <div class="card-body">
+                    <h3 class="card-title mt-3">{{ d.doc_name }}</h3>
+                    <p class="card-text text-muted">Specialist: {{ d.doc_spec }}</p>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <p class="text-center w-100">No doctors available at the moment.</p>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

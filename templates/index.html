@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Home
+{% endblock %}
+
+{% block content %}
+{% load static %}
+
+<!-- 🏥 ഹോം പേജ് കാർസൽ സെക്ഷൻ -->
+<div id="carouselExampleDark" class="carousel slide carousel-fade" data-bs-ride="carousel" style="margin-top: -24px;">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  
+  <div class="carousel-inner">
+    <!-- സ്ലൈഡ് 1 -->
+    <div class="carousel-item active" data-bs-interval="5000" style="position: relative;">
+      <div class="overlay" style="position: absolute; top:0; left:0; width:100%; height:100%; bg-color: rgba(0,0,0,0.5); background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.4)); z-index: 1;"></div>
+      <img src="{% static '/images/car1.jpg' %}" class="d-block w-100" alt="Hospital Front" style="height: 75vh; object-fit: cover;">
+      <div class="carousel-caption d-md-block text-white text-start" style="z-index: 2; bottom: 25%; max-width: 600px; left: 10%;">
+        <h1 class="display-3 fw-bold text-warning animate__animated animate__fadeInDown">Your Health, <br><span class="text-white">Our Priority</span></h1>
+        <p class="lead fs-4 my-4 d-none d-sm-block">Experience world-class healthcare with top-notch medical specialists and advanced facilities right here.</p>
+        <a href="{% url 'booking' %}" class="btn btn-primary btn-lg px-4 py-3 fw-bold shadow-lg">Book An Appointment</a>
+      </div>
+    </div>
+
+    <!-- സ്ലൈഡ് 2 -->
+    <div class="carousel-item" data-bs-interval="5000" style="position: relative;">
+      <div class="overlay" style="position: absolute; top:0; left:0; width:100%; height:100%; background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.4)); z-index: 1;"></div>
+      <img src="{% static '/images/car2.jpg' %}" class="d-block w-100" alt="Expert Doctors" style="height: 75vh; object-fit: cover;">
+      <div class="carousel-caption d-md-block text-white text-center" style="z-index: 2; bottom: 25%;">
+        <h1 class="display-3 fw-bold text-info">Expert Medical Team</h1>
+        <p class="lead fs-4 my-4 d-none d-sm-block">Our dedicated team of specialized doctors is available 24/7 to provide compassionate care.</p>
+        <a href="{% url 'doctors' %}" class="btn btn-outline-light btn-lg px-4 py-3 fw-bold me-2">Meet Our Doctors</a>
+        <a href="{% url 'booking' %}" class="btn btn-info btn-lg px-4 py-3 fw-bold text-white shadow">Book Now</a>
+      </div>
+    </div>
+
+    <!-- സ്ലൈഡ് 3 -->
+    <div class="carousel-item" data-bs-interval="5000" style="position: relative;">
+      <div class="overlay" style="position: absolute; top:0; left:0; width:100%; height:100%; background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.4)); z-index: 1;"></div>
+      <img src="{% static '/images/car3.jpg' %}" class="d-block w-100" alt="Advanced Lab" style="height: 75vh; object-fit: cover;">
+      <div class="carousel-caption d-md-block text-white text-end" style="z-index: 2; bottom: 25%; right: 10%; max-width: 600px;">
+        <h1 class="display-3 fw-bold text-success">Advanced Technology</h1>
+        <p class="lead fs-4 my-4 d-none d-sm-block">Equipped with modern operation theaters, intensive care units, and high-tech diagnostic labs.</p>
+        <a href="{% url 'about' %}" class="btn btn-success btn-lg px-4 py-3 fw-bold shadow">Learn More About Us</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- കൺട്രോൾ ബട്ടണുകൾ -->
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev" style="z-index: 3;">
+    <span class="carousel-control-prev-icon bg-dark rounded-circle p-3" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next" style="z-index: 3;">
+    <span class="carousel-control-next-icon bg-dark rounded-circle p-3" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+<!-- 🏥 ചെറിയൊരു വെൽക്കം സെക്ഷൻ കൂടി താഴെ ചേർക്കുന്നു (വേണ്ടെങ്കിൽ മാത്രം വെക്കാം) -->
+<div class="container my-5 py-4 text-center">
+    <h2 class="fw-bold text-primary">Welcome to Care Hospital</h2>
+    <p class="text-muted mx-auto" style="max-width: 700px;">We are committed to delivering outstanding medical care with a focus on patient safety, advanced technology, and a healing environment.</p>
+</div>
+
+{% endblock %}
